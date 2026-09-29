@@ -1,0 +1,30 @@
+{
+  "case_id": "PHYS_IF016_contact_repeat_v1",
+  "objective": "在同一会话中接近石栏，短暂向前尝试，停止、后退、再次接近并尝试。",
+  "admission": "qualification",
+  "protocol": "T1",
+  "status": "draft_requires_verified_world_adapter_and_human_positive",
+  "source_task_id": "IF016",
+  "phase_order": ["baseline", "approach_1", "attempt_1", "wait_1", "retreat", "approach_2", "attempt_2", "wait_2"],
+  "budget": {
+    "max_decisions": 40,
+    "max_control_ticks_per_decision": 4,
+    "base_sample_stride": 5,
+    "event_radius": 3,
+    "max_supplements": 1
+  },
+  "questions": [{
+    "id": "q1",
+    "metric": "C1",
+    "domain": "P3",
+    "subdomain": "P3.1",
+    "dimension": "S1",
+    "required": true,
+    "applicable": true,
+    "premise": "角色和同一段石栏实体可辨认；未安排拆卸或破坏；角色实际抵达实体并继续短时前进。低栏可合理攀爬或翻越。",
+    "evidence_required": "初态、接近、实际前进动作前后连续原图、石材本体边界与角色位置；遮挡时补查。",
+    "pass_rule": "实际接触后可见受阻或沿边界移动，未穿过可见石材本体。",
+    "violation_rule": "有足够连续视觉证据表明角色穿过可见石材本体，而非合理翻越或视角遮挡。"
+  }],
+  "note": "第二次接近只辅助复核同一 C1 问题，不另算 S3。预算仅是工程草稿，真实运行前须按模型 tick 定义和开发集冻结。"
+}
